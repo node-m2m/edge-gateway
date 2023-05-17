@@ -47,7 +47,7 @@ user.connect(() => {
       })
 
   })
-}
+})
 ```
 #### 3. Start your device application.
 
