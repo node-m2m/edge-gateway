@@ -100,16 +100,16 @@ let user = new m2m.User()
  */
 let edge = new m2m.Edge()
 
-let ec1 = new edge.client(8134)
-let ec2 = new edge.client(8135)
-
 /***
  * tcp edge gateway or edge broker
  */
-    
 let port = 8129
 
 user.connect(() => {
+  
+  let ec1 = new edge.client(8134)
+  let ec2 = new edge.client(8135)
+
   edge.createServer(port, (server) => {
       console.log('tcp gateway :', port)
 
