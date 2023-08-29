@@ -45,7 +45,6 @@ user.connect(() => {
       server.on('error', (err) => { 
           console.log('error:', err.message)
       })
-
   })
 })
 ```
@@ -84,7 +83,6 @@ user.connect(() => {
       server.on('error', (err) => { 
           console.log('error:', err.message)
       })
-
   })
 })
 ```
@@ -105,8 +103,9 @@ let edge = new m2m.Edge()
  */
 let port = 8129
 
-user.connect(() => {
-  
+user.connect(app)
+
+function app(){
   let ec1 = new edge.client(8134)
   let ec2 = new edge.client(8135)
 
@@ -131,7 +130,7 @@ user.connect(() => {
           console.log('gateway connected client', count)
       })
   })
-})
+}
 ```
 
 ### Edge Client
@@ -145,7 +144,9 @@ let user = new m2m.User()
  */
 let edge = new m2m.Edge()
 
-user.connect(() => {
+user.connect(app)
+
+function app(){
   let ec1 = new edge.client(8129)
 
   ec1.sub('voltage', (data) => {
@@ -159,8 +160,7 @@ user.connect(() => {
   ec1.on('error', (err) => { 
       console.log('error:', err.message)
   })
-})
-
+}
 ```
 
 #### 3. Start the client application.
