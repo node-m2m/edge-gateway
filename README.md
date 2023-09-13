@@ -25,7 +25,8 @@ function dataSource(){
   return 20 + Math.floor(Math.random() * 10)
 }
 
-// for a secure edge access, create a user object to authenticate your edge connection with node-m2m server
+// for a secure edge access, create a user object
+// to authenticate your edge connection with node-m2m server
 let user = new m2m.User()
 
 /***
@@ -64,7 +65,8 @@ function dataSource(){
   return 50 + Math.floor(Math.random() * 10)
 }
 
-// for a secure edge access, create a user object to authenticate your edge connection with node-m2m server
+// for a secure edge access, create a user object
+// to authenticate your edge connection with node-m2m server
 let user = new m2m.User()
 
 /***
