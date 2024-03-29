@@ -3,19 +3,12 @@
 ![](assets/edge-gateway.svg)
 
 
-Instead of each client accessing directly the edge servers, we will create an edge gateway that will act as broker between the edge clients and the edge servers.  
+Instead of clients accessing directly the edge servers, we will create an edge gateway that will act as a broker between edge clients and edge servers.  
 
 <br>
 
 ### Edge Server 1
-
-#### 1. Create a device project directory and install *m2m*.
-
-```js
-$ npm install m2m
-```
-
-#### 2. Save the code below as *server.js* in your server 1 project directory.
+#### 1. Save the code below as *server.js* in your server 1 project directory.
 
 ```js
 const m2m = require('m2m')
@@ -25,20 +18,11 @@ function dataSource(){
   return 20 + Math.floor(Math.random() * 10)
 }
 
-// for a secure edge access, create a user object
-// to authenticate your edge connection with node-m2m server
-let user = new m2m.User()
-
-/***
- * tcp edge server 1
- */
 let edge = new m2m.Edge()
-
 let port = 8134
 
-user.connect(() => {
+m2m.connect(() => {
   edge.createServer(port, (server) => {
-      console.log('tcp server 1 :', port)
 
       server.dataSource('voltage-source', (tcp) => {
           tcp.send(dataSource())         
@@ -50,13 +34,15 @@ user.connect(() => {
   })
 })
 ```
-#### 3. Start your device application.
+#### 2. Start your application.
 
 ```js
-$ node device.js
+$ node server.js
 ```
 
 ### Edge Server 2
+#### 1. Save the code below as *server.js* in your server 2 project directory.
+
 ```js
 const m2m = require('m2m')
 
@@ -65,20 +51,11 @@ function dataSource(){
   return 50 + Math.floor(Math.random() * 10)
 }
 
-// for a secure edge access, create a user object
-// to authenticate your edge connection with node-m2m server
-let user = new m2m.User()
-
-/***
- * tcp edge server 2
- */
 let edge = new m2m.Edge()
-
 let port = 8135 
 
-user.connect(() => {
+m2m.connect(() => {
   edge.createServer(port, (server) => {
-      console.log('tcp server 2 :', port)
 
       server.dataSource('temp-source', (tcp) => {
           tcp.send(dataSource())         
@@ -90,31 +67,28 @@ user.connect(() => {
   })
 })
 ```
+#### 2. Start your application.
 
+```js
+$ node server.js
+```
+
+#### 1. Save the code below as *gateway.js* in your gateway project directory.
 ### Edge Gateway
 ```js
 const m2m = require('m2m')
 
-let user = new m2m.User()
-
-/***
- * tcp edge clients
- */
 let edge = new m2m.Edge()
-
-/***
- * tcp edge gateway or edge broker
- */
 let port = 8129
 
-user.connect(app)
+m2m.connect(app)
 
 function app(){
   let ec1 = new edge.client(8134)
   let ec2 = new edge.client(8135)
 
+  // edge gateway server
   edge.createServer(port, (server) => {
-      console.log('tcp gateway :', port)
 
       server.publish('voltage', (tcp) => {
           ec1.read('voltage-source', (data) => {
@@ -128,29 +102,29 @@ function app(){
           })
       })
 
-      // monitor connected client
-      // ensure the connected clients does not continously increase 
+      // monitor the connected clients ensuring the connections does not continously increase 
       server.on('connection', (count) => { 
           console.log('gateway connected client', count)
       })
   })
 }
 ```
+#### 2. Start the application.
+```js
+$ node gateway.js
+```
 
+#### 1. Save the code below as *client.js* in your client project directory.
 ### Edge Client
 ```js
 const m2m = require('m2m')
 
-let user = new m2m.User()
-
-/***
- * tcp edge client 1
- */
 let edge = new m2m.Edge()
 
-user.connect(app)
+m2m.connect(app)
 
 function app(){
+  // access the gateway server only
   let ec1 = new edge.client(8129)
 
   ec1.sub('voltage', (data) => {
@@ -166,8 +140,7 @@ function app(){
   })
 }
 ```
-
-#### 3. Start the client application.
+#### 2. Start the application.
 
 ```js
 $ node client.js
