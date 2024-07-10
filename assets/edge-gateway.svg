@@ -42,7 +42,7 @@
    <glyph unicode="A" horiz-adv-x="1377" d="M 1167,0 L 1006,412 364,412 202,0 4,0 579,1409 796,1409 1362,0 1167,0 Z M 685,1265 L 676,1237 C 659,1182 635,1111 602,1024 L 422,561 949,561 768,1026 C 749,1072 731,1124 712,1182 L 685,1265 Z"/>
    <glyph unicode="2" horiz-adv-x="954" d="M 103,0 L 103,127 C 137,205 179,274 228,334 277,393 328,447 382,496 436,544 490,589 543,630 596,671 643,713 686,754 729,795 763,839 790,884 816,929 829,981 829,1038 829,1115 806,1175 761,1218 716,1261 653,1282 572,1282 495,1282 432,1261 383,1220 333,1178 304,1119 295,1044 L 111,1061 C 124,1174 172,1263 255,1330 337,1397 443,1430 572,1430 714,1430 823,1397 900,1330 976,1263 1014,1167 1014,1044 1014,989 1002,935 977,881 952,827 914,773 865,719 816,665 721,581 582,468 505,405 444,349 399,299 354,248 321,200 301,153 L 1036,153 1036,0 103,0 Z"/>
    <glyph unicode="1" horiz-adv-x="927" d="M 156,0 L 156,153 515,153 515,1237 197,1010 197,1180 530,1409 696,1409 696,153 1039,153 1039,0 156,0 Z"/>
-   <glyph unicode="." horiz-adv-x="213" d="M 187,0 L 187,219 382,219 382,0 187,0 Z"/>
+   <glyph unicode="-" horiz-adv-x="531" d="M 91,464 L 91,624 591,624 591,464 91,464 Z"/>
    <glyph unicode=" " horiz-adv-x="556"/>
   </font>
  </defs>
@@ -270,8 +270,8 @@
       </g>
       <g class="TextShape">
        <g id="id27">
-        <rect class="BoundingBox" stroke="none" fill="none" x="3658" y="12192" width="12701" height="2172"/>
-        <text class="SVGTextShape"><tspan class="TextParagraph" font-family="Liberation Sans, sans-serif" font-size="423px" font-weight="700"><tspan class="TextPosition" x="3908" y="12702"><tspan fill="rgb(0,0,0)" stroke="none" style="white-space: pre">Note:</tspan><tspan font-weight="400" fill="rgb(0,0,0)" stroke="none" style="white-space: pre"> All edge endpoints must be connected to the same </tspan></tspan><tspan class="TextPosition" x="3908" y="13176"><tspan font-weight="400" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">wireless SSID for wireless communication or through a common  </tspan></tspan><tspan class="TextPosition" x="3908" y="13650"><tspan font-weight="400" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">network switch for wired ethernet connection. </tspan></tspan></tspan></text>
+        <rect class="BoundingBox" stroke="none" fill="none" x="3658" y="12192" width="12701" height="1334"/>
+        <text class="SVGTextShape"><tspan class="TextParagraph" font-family="Liberation Sans, sans-serif" font-size="423px" font-weight="700"><tspan class="TextPosition" x="3908" y="12702"><tspan fill="rgb(0,0,0)" stroke="none" style="white-space: pre">Note:</tspan><tspan font-weight="400" fill="rgb(0,0,0)" stroke="none" style="white-space: pre"> All edge endpoints must be connected to the same wi-fi </tspan></tspan><tspan class="TextPosition" x="3908" y="13176"><tspan font-weight="400" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">SSID or through a network switch for wired ethernet connection </tspan></tspan></tspan></text>
        </g>
       </g>
       <g class="Group">
