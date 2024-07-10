@@ -3,7 +3,7 @@
 ![](assets/edge-gateway.svg)
 
 
-Instead of clients accessing directly the edge servers, we will create an edge gateway that will act as a broker between edge clients and edge servers.  
+Instead of the edge clients accessing directly the edge servers, we will create an edge gateway that will act as a broker between the edge clients and edge servers.  
 
 <br>
 
