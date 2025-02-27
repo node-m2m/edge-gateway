@@ -1,6 +1,6 @@
 
 ## Edge Gateway
-![](assets/edge-gateway.svgz)
+![](assets/edge-gateway.apng)
 
 
 Instead of the edge clients accessing directly the edge servers, we will create an edge gateway that will act as a broker between the edge clients and edge servers.  
